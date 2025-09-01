@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+               xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/sumoConfiguration.xsd">
+    
+    <!-- Input files for Addis Ababa simulation -->
+    <input>
+        <net-file value="addisababa.net.xml"/>
+        <route-files value="addis_routes.xml"/>
+        <additional-files value="addis_additional.xml"/>
+    </input>
+    
+    <!-- Time settings covering peak periods -->
+    <time>
+        <begin value="0"/>
+        <end value="7200"/>
+        <step-length value="1.0"/>
+    </time>
+    
+    <!-- Processing settings for Addis Ababa traffic -->
+    <processing>
+        <!-- Collision behavior as specified -->
+        <collision.action value="none"/>
+        <collision.check-junctions value="true"/>
+        
+        <!-- Traffic flow parameters -->
+        <default.speeddev value="0.1"/>
+        <default.action-step-length value="1.0"/>
+        <lateral-resolution value="0.8"/>
+        
+        <!-- Route and vehicle management -->
+        <ignore-route-errors value="true"/>
+        <max-num-vehicles value="20000"/>
+        <eager-insert value="true"/>
+        <time-to-teleport value="300"/>
+        <ignore-junction-blocker value="60"/>
+        
+        <!-- Pedestrian integration -->
+        <pedestrian.model value="striping"/>
+        <pedestrian.striping.stripe-width value="0.55"/>
+        <pedestrian.striping.dawdling value="0.1"/>
+    </processing>
+    
+    <!-- GUI visualization settings -->
+    <gui_only>
+        <start value="true"/>
+        <quit-on-end value="false"/>
+        <delay value="100"/>
+        <window-size value="1200,800"/>
+    </gui_only>
+    
+    <!-- Output collection as specified -->
+    <output>
+        <tripinfo-output value="tripinfo.xml"/>
+        <summary-output value="summary.xml"/>
+        <emission-output value="emissions.xml"/>
+        <fcd-output value="floating_car_data.xml"/>
+        <fcd-output.geo value="true"/>
+        <duration-log.statistics value="true"/>
+        <statistic-output value="statistics.xml"/>
+    </output>
+    
+    <!-- Reporting settings -->
+    <report>
+        <verbose value="true"/>
+        <no-step-log value="true"/>
+        <no-warnings value="false"/>
+        <log-file value="simulation.log"/>
+    </report>
+    
+    <!-- Random seed for reproducibility -->
+    <random_number>
+        <seed value="42"/>
+    </random_number>
+    
+    <!-- TraCI server for external control -->
+    <traci_server>
+        <remote-port value="8813"/>
+    </traci_server>
+    
+</configuration>
